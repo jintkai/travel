@@ -1,7 +1,7 @@
 <template>
   <div class="icons">
     <swiper>
-      <swiper-slide v-for="item in pages">
+      <swiper-slide :options="swiperOption" v-for="(item,index) in pages" :key="index">
         <div class="icon" v-for="icon in item">
           <div class="icon-img">
             <img class="icon-img-content" :src="icon.imgUrl"/>
@@ -17,41 +17,16 @@
 <script>
   export default {
     name: "icons",
+    props:{
+      iconlist:{
+        type:Array
+      }
+    },
     data: function () {
       return {
-        iconlist:[
-          {
-            title:'景点',
-            imgUrl:'https://pic5.40017.cn/01/000/5f/30/rBANC1qozNqAb3vRAAAD_Qg-dt4234.png'
-          },
-          {  title:'火车票',
-            imgUrl:'https://pic5.40017.cn/01/000/5f/30/rBANC1qozNqAb3vRAAAD_Qg-dt4234.png'
-          },
-          {  title:'机票',
-            imgUrl:'https://pic5.40017.cn/02/001/5f/ab/rBLkCFqozNqAJqPYAAAFlYq1v7A413.png'
-          },
-          {  title:'酒店住宿',
-            imgUrl:'https://pic5.40017.cn/01/000/5f/a5/rBLkBVqozNqAGbVbAAADpuwJ0xY082.png'
-          },
-          {  title:'景点门票',
-            imgUrl:'https://pic5.40017.cn/02/001/5f/ab/rBLkCFqozNqAF4UUAAAFH-2jq70957.png'
-          },
-          {  title:'景点',
-            imgUrl:'https://pic5.40017.cn/01/000/5f/30/rBANC1qozNqAb3vRAAAD_Qg-dt4234.png'
-          },
-          {  title:'景点',
-            imgUrl:'https://pic5.40017.cn/01/000/5f/30/rBANC1qozNqAb3vRAAAD_Qg-dt4234.png'
-          },
-          {  title:'景点',
-            imgUrl:'https://pic5.40017.cn/01/000/5f/30/rBANC1qozNqAb3vRAAAD_Qg-dt4234.png'
-          },
-          {  title:'景点景点景点',
-            imgUrl:'https://pic5.40017.cn/01/000/5f/30/rBANC1qozNqAb3vRAAAD_Qg-dt4234.png'
-          },
-          {  title:'景点',
-            imgUrl:'https://pic5.40017.cn/01/000/5f/30/rBANC1qozNqAb3vRAAAD_Qg-dt4234.png'
-          }
-        ]
+        swiperOption:{
+          autopaly:false
+        }
       }
     },
     computed:{

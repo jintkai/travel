@@ -4,14 +4,24 @@
     <div class="header-input">
       <span class="iconfont">&#xe752;</span>输入城市/景点/游玩主题
     </div>
-    <div class="header-right">城市
-      <span class="iconfont">&#xe771;</span></div>
+    <div class="header-right">
+      <router-link to="/city">
+        {{city}}
+        <span class="iconfont">&#xe771;</span>
+      </router-link>
+    </div>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'Header'
+    name: 'Header',
+    props:{
+      city:{
+        type:String,
+        default:''
+      }
+    }
   }
 </script>
 

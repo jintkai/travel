@@ -7,11 +7,10 @@ import './assets/style/iconfont.css'
 import fastClick from 'fastclick'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
-
+import axios from 'axios'
 fastClick.attach(document.body)
 Vue.config.productionTip = false
 Vue.use(VueAwesomeSwiper, /* { default global options } */)
-
 new Vue({
   el: '#app',
   router,

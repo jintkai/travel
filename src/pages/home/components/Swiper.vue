@@ -1,6 +1,6 @@
 <template>
   <div>
-    <swiper :options="swiperOption" class="swiper">
+    <swiper :options="swiperOption" class="swiper" v-if="showSwiper">
       <swiper-slide v-for="item in swiperList" :key="item.id">
         <img :src="item.url" class="item"/>
       </swiper-slide>
@@ -12,30 +12,22 @@
 <script>
   export default {
     name: "HomeSwiper",
+    props:{
+      swiperList:{
+        type:Array
+      }
+    },
+    computed:{
+      showSwiper:function(){
+        return this.swiperList.length
+      }
+    },
     data: function () {
       return {
         swiperOption: {
           pagination: '.swiper-pagination',//定义底部样式
           loop:true                        //设置是否可循环
-        },
-        swiperList: [
-          {
-            id: '0001',
-            url: 'http://m.elongstatic.com/promotions/wireless/uploadImages/images/152601257966674.jpg'
-          },
-          {
-            id: '0002',
-            url: 'http://m.elongstatic.com/promotions/wireless/uploadImages/images/152939183000057.jpg'
-          },
-          {
-            id: '0003',
-            url: 'http://m.elongstatic.com/promotions/wireless/uploadImages/images/152963114101403.jpg'
-          },
-          {
-            id: '0004',
-            url: 'http://m.elongstatic.com/promotions/wireless/uploadImages/images/153006414328573.jpg'
-          }
-        ]
+        }
       }
     }
   }

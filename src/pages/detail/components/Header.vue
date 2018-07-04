@@ -30,6 +30,7 @@
     },
     methods: {
       srollEvent() {
+        console.log('1s')
         let srollTop = document.documentElement.scrollTop
         if (srollTop > 40) {
           this.showTop = true
@@ -46,11 +47,13 @@
         } else {
           this.showTop = false
         }
-
       }
     },
     mounted: function () {
       window.addEventListener("scroll", this.srollEvent)
+    },
+    destroyed:function () {
+      window.removeEventListener("scroll",this.srollEvent)
     }
   }
 </script>

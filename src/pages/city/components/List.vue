@@ -8,14 +8,14 @@
           </div>
           <div class="city-items">
             <div class="city-item">
-              <div>北京</div>
+              <div>{{this.$store.state.city}}</div>
             </div>
           </div>
           <div class="city-listtitle">
             热门城市
           </div>
           <div class="city-items">
-            <div class="city-item" v-for="city in hotCities" :key="city.id">
+            <div class="city-item" v-for="city in hotCities" :key="city.id" @click="changeCity(city.name)">
               <div>{{city.name}}</div>
             </div>
           </div>
@@ -26,7 +26,7 @@
             {{key}}
           </div>
           <div class="citys" >
-            <div class="item"  v-for="city in item" :key="city.id">
+            <div class="item"  v-for="city in item" :key="city.id" @click="changeCity(city.name)">
               {{city.name}}
             </div>
           </div>
@@ -55,6 +55,12 @@
     watch:{
       letter(){
         this.scroll.scrollToElement(this.$refs[this.letter][0])
+      }
+    },
+    methods:{
+      changeCity(city){
+        this.$store.dispatch('changeCity',city)
+        this.$router.push({path:"/"})
       }
     },
     mounted: function () {

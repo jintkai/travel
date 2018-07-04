@@ -4,7 +4,7 @@
       推荐热线
     </div>
     <div>
-      <div class="item" v-for="(item ,index) in list" :key="index">
+      <router-link class="item" v-for="(item ,index) in list" :key="index" to="/detail/001" tag="div">
         <img class="item-img"
              :src="item.imgUrl"/>
         <div class="item-content">
@@ -12,7 +12,7 @@
           <p class="item-desc">{{item.desc}}</p>
           <button class="item-button">查看详情</button>
         </div>
-      </div>
+      </router-link>
     </div>
   </div>
 </template>
